@@ -66,7 +66,8 @@ public class PredatoryCreditCard extends CreditCard {
     PredatoryCreditCard card = new PredatoryCreditCard("Michael", "Payday", "1111 1111 1111 1111", 2500, 0, 0.0825);
     card.charge(1000);
     CreditCard.printSummary(card);
-    card.processMonth();           // interest charged
+    PredatoryCreditCard pcc = (PredatoryCreditCard) card;
+    pcc.processMonth();           // interest charged
     CreditCard.printSummary(card);
     card.charge(10000);            // should be rejected, with penalty
     CreditCard.printSummary(card);

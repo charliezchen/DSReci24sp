@@ -40,4 +40,9 @@ public class ArithmeticProgression extends Progression {
   protected void advance() {
     current += increment;
   }
+
+  public static void main(String[] args) {
+    Progression prog = new ArithmeticProgression(10, 20);
+    prog.printProgression(10);
+  }
 }
