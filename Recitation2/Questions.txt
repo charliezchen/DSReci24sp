@@ -1,0 +1,53 @@
+P1-P4 are relevant to the class SinglyLinkedList
+
+P1: Answer the following question
+What are the usage of SinglyLinkedList.java:156-157?
+What would happen if those two lines are not given?
+
+P2: Implement the following method for SinglyLinkedList
+public E findSecondToLast();
+This method finds the second to last element and 
+return that node. You can assume the last node
+has null as its "next" pointer. Return null if
+the size of the linked list is less than 2.
+
+P3: Implement the following method for SinglyLinkedList
+public int size2();
+You cannot use the size variable of the class
+
+P4: Implement a rotate() method in the SinglyLinkedList 
+class, which has semantics equal to addLast(removeFirst()), 
+yet without creating any new node.
+
+P5-P10 require you to describe algorithms in texts
+
+P5: Let A be an array of size n ≥ 2 containing 
+integers from 1 to n−1 inclusive, one of which is repeated. 
+Describe an algorithm for finding the integer in A that is 
+repeated.
+
+P6: Let B be an array of size n ≥ 6 containing integers 
+from 1 to n−5 inclusive, five of which are repeated. 
+Describe an algorithm for finding the five integers in B 
+that are repeated.
+
+P7: Describe an algorithm for concatenating two singly 
+linked lists L and M, into a single list L′ that contains 
+all the nodes of L followed by all the nodes of M.
+
+P8: Give an algorithm for concatenating two doubly linked 
+lists L and M, with header and trailer sentinel nodes, into 
+a single list L′.
+
+P9: Describe in detail how to swap two nodes x and y(and 
+not just their contents) in a singly linked list L given 
+references only to x and y. Repeat this exercise for the 
+case when L is a doubly linked list. Which algorithm takes 
+more time?
+
+P10: Describe in detail an algorithm for reversing a singly 
+linked list L using only a constant amount of additional 
+space.
+
+
+Acknowledgement: all the problems are from Goodwich
