@@ -1,0 +1,157 @@
+P1-P4 are relevant to the class SinglyLinkedList
+
+P1: Answer the following question
+What are the usage of SinglyLinkedList.java:157-158?
+What would happen if those two lines are not given?
+
+If the linked list has only one element and we call
+removeFirst(), tail will still point to the deleted 
+node, so it will not be collected by the garbage
+collector.
+
+P2: Implement the following method for SinglyLinkedList
+public E findSecondToLast();
+This method finds the second to last element and 
+return that node. You can assume the last node
+has null as its "next" pointer. Return null if
+the size of the linked list is less than 2.
+
+See the .java file
+
+P3: Implement the following method for SinglyLinkedList
+public int size2();
+Return the size of the linked list.
+You cannot use the size variable of the class
+
+See the .java file
+
+P4: Implement a rotate() method in the SinglyLinkedList 
+class, which has semantics equal to addLast(removeFirst()), 
+yet without creating any new node.
+
+See the .java file
+
+P5-P10 require you to describe algorithms in texts.
+There might be multiple solutions for each one.
+
+P5: Let A be an array of size n ≥ 2 containing 
+integers from 1 to n−1 inclusive, one of which is repeated. 
+Describe an algorithm for finding the integer in A that is 
+repeated.
+
+Alg. 1 (Brute Force):
+For index i, check if arr[j] == arr[i] for j < i.
+If there is any match, return i.
+
+Alg. 2:
+1. Create a new array "bitmap" of size n,
+   with 0 as initial values.
+2. for i = 0,...,n-1, if bitmap[i] == 1,
+   return i; otherwise, set bitmap[i]=1
+
+Alg. 3:
+1. int s = 0;
+2. for i = 0,...,n-1, s = s + arr[i]
+3. k = arr[i] - n * (n+1) / 2
+4. return the index i where arr[i] == k
+
+P6: Let B be an array of size n ≥ 6 containing integers 
+from 1 to n−5 inclusive, five of which are repeated. 
+Describe an algorithm for finding the five integers in B 
+that are repeated.
+
+Same algorithms as P5
+
+P7: Describe an algorithm for concatenating two singly 
+linked lists L and M, into a single list L′ that contains 
+all the nodes of L followed by all the nodes of M.
+
+L.tail.next = M.head
+
+P8: Give an algorithm for concatenating two doubly linked 
+lists L and M, with header and trailer sentinel nodes, into 
+a single list L′.
+
+L.tail = L.tail.prev
+M.head = M.head.next
+L.tail.next = M.head
+M.head.prev = L.tail
+return new LinkedList(L.head, M.tail)
+
+P9: Describe in detail how to swap two nodes x and y (and 
+not just their contents) in a singly linked list L given 
+references only to x and y. Repeat this exercise for the 
+case when L is a doubly linked list. Which algorithm takes 
+more time?
+
+Singly linked list:
+// Check adjacency
+if x.next == y or y.next == x
+  without loss of generality, consider x.next == y
+  x.next = y.next 
+  y.next = x
+  if x == head
+    head = y
+  else
+    xp = "x.prev" (through iteration from head)
+    xp.next = y
+// Deal with case when x and y are not adjacent
+else
+  // Check if any of them is head
+  if x == head or y == head
+    without loss of generality, consider x == head
+    yp = "y.prev"
+    y_next = y.next 
+    y.next = x.next
+    yp.next = x
+    x.next = y_next
+  else
+    xp = "x.prev"
+    yp = "y.prev"
+    y_next = y.next
+    y.next = x.next
+    xp.next = y
+    x.next = y_next
+    yp.next = x
+
+// Update tail if needed
+if x == tail, y = tail and vise versa
+
+Doubly linked list with sentinel nodes:
+Dummy a, b
+// First, replace x with a and y with b
+x.prev.next = a 
+a.prev = x.prev
+x.next.prev = a 
+a.next = x.next
+... same for y and b
+// Then, replace a back with y and b with x 
+a.prev.next = y
+y.prev = y.prev
+a.next.prev = y
+y.next = a.next
+... same for x and b
+// The benefit is that we don't need to deal 
+// with corner case
+
+Time analysis:
+The both take O(1) time, but the logic for 
+the doubly linked list is clearer and less
+error prone.
+
+P10: Describe in detail an algorithm for reversing a singly 
+linked list L using only a constant amount of additional 
+space.
+
+prev = head
+node = head.next
+while node is not null
+  tmp = node 
+  node = node.next
+  tmp.next = prev
+  prev = tmp
+head.next = null
+head = prev
+
+
+Acknowledgement: all the problems are from Goodwich

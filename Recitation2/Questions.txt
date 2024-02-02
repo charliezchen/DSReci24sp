@@ -1,7 +1,7 @@
 P1-P4 are relevant to the class SinglyLinkedList
 
 P1: Answer the following question
-What are the usage of SinglyLinkedList.java:156-157?
+What are the usage of SinglyLinkedList.java:157-158?
 What would happen if those two lines are not given?
 
 P2: Implement the following method for SinglyLinkedList
@@ -13,6 +13,7 @@ the size of the linked list is less than 2.
 
 P3: Implement the following method for SinglyLinkedList
 public int size2();
+Return the size of the linked list.
 You cannot use the size variable of the class
 
 P4: Implement a rotate() method in the SinglyLinkedList 
